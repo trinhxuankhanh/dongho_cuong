@@ -917,11 +917,15 @@ function searchProducts(e) {
         cate: "Đồng hồ nam",
         image: "img/8430622742859-1-lrsy3vvt-480-480.jpg"
     }];
-    let search = document.getElementById('search').value.toLowerCase();
+    let search = document.getElementById('search').value.trim().toLowerCase();
     let arr = JSON.parse(localStorage.getItem("watch"))
     let result = arr.filter( item => {
         if(item.name.toLowerCase().includes(search)) return item 
     })
     !(search === "") ? localStorage.setItem("watch", JSON.stringify(result)) :
     localStorage.setItem("watch", JSON.stringify(watchs))
+    if (result.length === 0) {
+        alert("Không có sản phẩm phù hợp")
+        localStorage.setItem("watch", JSON.stringify(watchs))
+    }
 }
