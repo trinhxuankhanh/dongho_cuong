@@ -424,42 +424,48 @@ function Signup() {
     var username = document.getElementById('usernameSignup').value;
     var password = document.getElementById('passwordSignup').value;
     var Repassword = document.getElementById('RepasswordSignup').value;
+    let testUser = (/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/.test(username));
+    let testPass = (/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/.test(password));
+    let testRePass = (/^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/.test(Repassword));
     if (username != '' && password != '' && Repassword != '' && password == Repassword) {
-        for (let i = 0; i < account.length; i++) {
-            if (account[i].username == username) {
-
-
-                checkUsername = 1;
-                break;
-            }
-        }
-        if (checkUsername == 0) {
-            accountSignup = {
-                id,
-                username,
-                password,
-                level
-            };
-            account.push(accountSignup);
-
-            localStorage.setItem("account", JSON.stringify(account));
-
-            checkLogin = id;
-            localStorage.setItem("checkLogin", JSON.stringify(checkLogin));
-
-            var id = idup++;
-            localStorage.setItem("idup", JSON.stringify(idup));
-            console.log(account);
-            document.getElementById("statusSignup").innerHTML = "Đăng ký thành công";
-            document.getElementById("menu_account_login").innerHTML = username;
-            document.getElementById("menu_account_login").style.display = 'block';
-            document.getElementById("menu_login_button").style.display = 'none';
-            document.getElementById("hello_user").innerHTML = "Xin chào " + username + " !";
-            document.getElementById("menu_logout").style.display = 'block';
-            location.reload();
-        } else {
-            document.getElementById("statusSignup").innerHTML = "Tên tài khoản đã tồn tại";
-        }
+        if(testUser && testPass && testRePass) {
+            if (username.length > 5 && password.length > 5 && Repassword.length > 5) {
+                for (let i = 0; i < account.length; i++) {
+                    if (account[i].username == username) {
+        
+        
+                        checkUsername = 1;
+                        break;
+                    }
+                }
+                if (checkUsername == 0) {
+                    accountSignup = {
+                        id,
+                        username,
+                        password,
+                        level
+                    };
+                    account.push(accountSignup);
+        
+                    localStorage.setItem("account", JSON.stringify(account));
+        
+                    checkLogin = id;
+                    localStorage.setItem("checkLogin", JSON.stringify(checkLogin));
+        
+                    var id = idup++;
+                    localStorage.setItem("idup", JSON.stringify(idup));
+                    document.getElementById("statusSignup").innerHTML = "Đăng ký thành công";
+                    document.getElementById("menu_account_login").innerHTML = username;
+                    document.getElementById("menu_account_login").style.display = 'block';
+                    document.getElementById("menu_login_button").style.display = 'none';
+                    document.getElementById("hello_user").innerHTML = "Xin chào " + username + " !";
+                    document.getElementById("menu_logout").style.display = 'block';
+                    location.reload();
+                } else {
+                    document.getElementById("statusSignup").innerHTML = "Tên tài khoản đã tồn tại";
+                }
+            } else document.getElementById("statusSignup").innerHTML = "Vui lòng nhập username và password lớn hơn 6 kí tự";
+        } else document.getElementById("statusSignup").innerHTML = "Vui lòng không nhập cứ tự đặt biệt hoặc username và password lớn hơn 6 kí tự";
     } else {
         document.getElementById("statusSignup").innerHTML = "Vui lòng nhập đầy đủ thông tin";
     }
