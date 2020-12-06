@@ -237,8 +237,11 @@ $(document).ready(function() {
 
 
 function checkout() {
-    document.getElementById("payment_form").style.display = 'block';
-    document.getElementById("checkout_form").style.display = 'none';
+    if(document.getElementById("prinf_order_cart").innerHTML !== '') {
+        document.getElementById("payment_form").style.display = 'block';
+        document.getElementById("checkout_form").style.display = 'none';
+    };
+    
 }
 var bank;
 
@@ -613,6 +616,7 @@ function payment() {
         localStorage.setItem("CheckInfo", JSON.stringify(CheckInfo));
         console.log(paymentWatch);
         // paymentPrinf();  
+        
     }
     for (let i = 0; i < orderWatch.length; i++) {
         if (checkLogin == orderWatch[i].user_id_order) {
@@ -621,7 +625,7 @@ function payment() {
             location.reload();
         }
     }
-
+    alert("Đặt hàng thành công")
 }
 
 function orderPrinf() {
