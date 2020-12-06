@@ -560,6 +560,11 @@ for (let i = 0; i < orderWatch.length; i++) {
     }
 }
 
+function back() {
+    document.getElementById("payment_form").style.display = 'none';
+    document.getElementById("checkout_form").style.display = 'block';
+}
+
 
 function payment() {
     var id_payment = JSON.parse(localStorage.getItem('id_payment'));
