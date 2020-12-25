@@ -1044,3 +1044,18 @@ function searchProducts(e) {
     localStorage.setItem("watch", JSON.stringify(watchs));
   }
 }
+
+let maxChar = [
+  "passcurrent",
+  "passnew",
+  "passnewrepeat",
+  "usernameLogin",
+  "passwordLogin",
+  "usernameSignup",
+  "passwordSignup",
+  "RepasswordSignup",
+  "name_customer",
+  "phone_customer",
+  "address_customer",
+  "search",
+];
