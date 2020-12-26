@@ -82,7 +82,7 @@ function listWatch() {
       `" width="100%" height="100%" style="">
         </div>
         <div class="info_box p-3 bg-white">
-            <p class="float-left font-weight-bold mb-0" style="font-size: 115%">` +
+            <p class="float-left font-weight-bold mb-0 w-100" style="font-size: 115%">` +
       watch[i].name +
       `</p><p class="float-right font-weight-bold mb-2" style="font-size: 115%">` +
       watch[i].price +
@@ -127,7 +127,7 @@ function listWatch() {
         `" width="100%" height="100%" style="">
         </div>
         <div class="info_box p-3 bg-white">
-            <p class="float-left font-weight-bold mb-0" style="font-size: 115%">` +
+            <p class="float-left font-weight-bold mb-0 w-100" style="font-size: 115%">` +
         watch[i].name +
         `</p><p class="float-right font-weight-bold mb-2" style="font-size: 115%">` +
         watch[i].price +
@@ -170,7 +170,7 @@ function listWatch() {
         `" width="100%" height="100%" style="">
         </div>
         <div class="info_box p-3 bg-white">
-            <p class="float-left font-weight-bold mb-0" style="font-size: 115%">` +
+            <p class="float-left font-weight-bold mb-0 w-100" style="font-size: 115%">` +
         watch[i].name +
         `</p><p class="float-right font-weight-bold mb-2" style="font-size: 115%">` +
         watch[i].price +
